@@ -1,0 +1,26 @@
+{
+  "tasks": {
+    "start": "deno task server:start & deno task vite:start",
+    "serve": "deno task vite:build && deno task server:start",
+    "build": "deno task vite:build",
+
+    "server:start": "deno run -A --node-modules-dir --watch ./server/main.ts",
+    "vite:start": "deno run -A --node-modules-dir npm:vite",
+    "vite:build": "deno run -A --node-modules-dir npm:vite build"
+  },
+  "imports": {
+    "@std/dotenv": "jsr:@std/dotenv@^0.224.0",
+    "@types/react": "npm:@types/react@^18.3.3",
+    "react": "npm:react@^18.3.1",
+    "react-dom": "npm:react-dom@^18.3.1",
+    "react-router-dom": "npm:react-router-dom@^6.23.1",
+    "vite": "npm:vite@^5.2.11",
+    "vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.0"
+  },
+  "compilerOptions": {
+    "types": ["react", "react-dom", "@types/react"],
+    "lib": ["dom", "dom.iterable", "esnext", "deno.ns"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
+}
