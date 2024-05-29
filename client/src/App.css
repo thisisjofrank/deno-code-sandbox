@@ -42,7 +42,7 @@ iframe {
     color: light-dark(var(--light-text), var(--dark-text));
     &:hover {
       text-decoration: underline;
-      light-dark(var(--light-primary), var(--dark-primary));
+      color: light-dark(var(--light-primary), var(--dark-primary));
     }
   }
 }
