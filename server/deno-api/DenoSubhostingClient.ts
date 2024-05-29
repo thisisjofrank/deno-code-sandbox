@@ -11,8 +11,8 @@ export class DenoSubhostingClient {
 
     constructor() {
         this.API = "https://api.deno.com/v1";
-        this.accessToken = env["DEPLOY_ACCESS_TOKEN"];
-        this.orgId = env["DEPLOY_ORG_ID"];
+        this.accessToken = env["DEPLOY_ACCESS_TOKEN"] || Deno.env.get("DEPLOY_ACCESS_TOKEN");
+        this.orgId = env["DEPLOY_ORG_ID"] || Deno.env.get("DEPLOY_ORG_ID");
 
         if (!this.accessToken) {
             throw new Error("env DEPLOY_ACCESS_TOKEN is required");
