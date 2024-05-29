@@ -4,10 +4,10 @@ import { DenoSubhostingClient } from "../deno-api/DenoSubhostingClient.ts";
 import createUrl from "./shared/createUrl.ts";
 
 const sampleCode = Deno.readTextFileSync(`${Deno.cwd()}/server/samples/code.ts`);
-const client = new DenoSubhostingClient();
 
 export default async function (ctx: RouterContext<string, Record<string, string>>) {
     await handleErrors(ctx, async () => {
+        const client = new DenoSubhostingClient();
         const id = ctx?.params?.id || (await client.createProject()).id;
         const code = ctx?.request?.body ? (await ctx?.request?.body.json()).code : sampleCode;
 
