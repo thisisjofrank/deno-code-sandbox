@@ -25,7 +25,9 @@ export default function ViewCode() {
     );
   };
 
-  Prism.highlightAll();
+  useEffect(() => {
+    Prism.highlightAll();
+  }, [code]);
 
   return (
     <div className="editor">
