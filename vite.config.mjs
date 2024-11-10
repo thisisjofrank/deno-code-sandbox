@@ -5,19 +5,19 @@ import "react-dom";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    root: './client',
-    server: {
-        port: 3000,
+  root: "./client",
+  server: {
+    port: 3000,
 
-        proxy: {
-            '/api': {
-                target: 'http://localhost:8000',
-                changeOrigin: true
-            }
-        }
+    proxy: {
+      "/api": {
+        target: "http://localhost:8000",
+        changeOrigin: true,
+      },
     },
-    plugins: [react()],
-    optimizeDeps: {
-        include: ['react/jsx-runtime'],
-    }
-})
+  },
+  plugins: [react()],
+  optimizeDeps: {
+    include: ["react/jsx-runtime"],
+  },
+});

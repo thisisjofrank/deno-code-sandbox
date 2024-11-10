@@ -1,11 +1,9 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
   color-scheme: light dark;
-  
+
   --light-primary: #f9f9f9;
   --dark-primary: #010101;
-  --light-bg: #efedea;
-  --dark-bg: #223a2c;
   --light-text: #333b3c;
   --dark-text: #efefec;
   --light-secondary: #70ffaf;
@@ -14,7 +12,6 @@
   --dark-secondary-action: #65eba0;
   --light-tertiary: #deffed;
   --dark-tertiary: #0a1810;
-  
 }
 
 html {
@@ -25,60 +22,30 @@ html {
 }
 
 body {
-  line-height: 1.5;
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}  
+  margin: 1rem;
+  color: white;
+  background-color: #181815;
+}
 
 button {
-  padding: 0.6em 1.2em;
-  border-radius: .5rem;
+  width: 100%;
+  padding: 1rem 1.6em;
+  border-radius: 2rem;
   border: 0;
-  font-size: 1em;
+  font-size: 16pt;
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
   transition: background-color 0.25s;
+  font-weight: bold;
+  background-color: #66d9ef;
+  color: #181815;
+  box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.75);
 }
 
-textarea {
-  width: 100%;
-  min-height: 15rem;
-  padding: 0.5em;
-  font-size: 1em;
-  font-family: 'Courier New', Courier, monospace;
-
+button:hover {
+  background-color: #49e2ff;
+  box-shadow: none;
+  transform: translateY(2px);
 }
 
-
-@media (prefers-color-scheme: light) {
-  body {
-    color: var(--light-text);
-    background-color: var(--light-bg);
-  }
-  button {
-    background-color: var(--light-secondary);
-    color: var(--light-text);
-  }
-  button:hover {
-    background-color: var(--light-secondary-action);
-  }
-}
-
-
-@media (prefers-color-scheme: dark) {
-  body {
-    color: var(--dark-text);
-    background-color: var(--dark-bg);
-  }
-  button {
-    background-color: var(--dark-secondary);
-    color: var(--dark-text);
-  }
-  button:hover {
-    background-color: var(--dark-secondary-action);
-  }
-}

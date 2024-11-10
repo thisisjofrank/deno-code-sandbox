@@ -1,18 +1,11 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: left;
-}  
+  --editor-width: 60%;
+}
 
 .editor {
-  display: flex;
-  flex-direction: column;
-  border-radius: 5px;
-
-  height: 60vh;
   width: 100%;
-  min-width: 50vw;
+  padding-left: calc(var(--editor-width) + 2rem);
 }
 
 textarea {
@@ -20,29 +13,151 @@ textarea {
   min-height: 15rem;
   padding: 0.5em;
   font-size: 1em;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
-iframe {
+.console {
+  height: calc(100vh - 12rem);
+  margin-top: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.sandbox {
   width: 100%;
-  height: 100%;
+  margin: 0;
+  height: calc(100vh - 14rem);
   border: 0;
-  border-bottom-left-radius: .5rem;
-  border-bottom-right-radius: .5rem;
-  background-color: light-dark(var(--light-primary), var(--dark-primary));
+  padding: 1.6rem;
+  font-size: 14pt;
+  background-color: rgba(255,255,255,0.6);
+  color: #272822;
 }
 
 .url {
-  margin-top: 1rem;
-  padding: .5rem 1rem;
-  font-size: small;
-  background-color: light-dark(var(--light-tertiary), var(--dark-tertiary));
+  padding: 1rem 1.6rem;
+  font-size: 14pt;
+  background-color: #a6e22e;
   a {
     text-decoration: none;
-    color: light-dark(var(--light-text), var(--dark-text));
+    color: #272822;
     &:hover {
       text-decoration: underline;
-      color: light-dark(var(--light-primary), var(--dark-primary));
     }
   }
+}
+
+#editing, #highlighting {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem;
+  padding: 1rem;
+  border: 0;
+  width: var(--editor-width);
+  height: calc(100vh - 2rem);
+}
+
+#editing, #highlighting, #highlighting * {
+  /* Also add text styles to highlighting tokens */
+  font-size: 14pt;
+  font-family: monospace;
+  line-height: 16pt;
+}
+
+#editing {
+  z-index: 1;
+  color: transparent;
+  background: transparent;
+  caret-color: white; /* Or choose your favorite color */
+}
+
+#highlighting {
+  z-index: 0;
+}
+
+/* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism-okaidia&languages=clike+javascript+typescript */
+code[class*="language-"], pre[class*="language-"] {
+  color: #f8f8f2;
+  background: 0 0;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+  background: #272822;
+}
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+.token.cdata, .token.comment, .token.doctype, .token.prolog {
+  color: #8292a2;
+}
+.token.punctuation {
+  color: #f8f8f2;
+}
+.token.namespace {
+  opacity: 0.7;
+}
+.token.constant, .token.deleted, .token.property, .token.symbol, .token.tag {
+  color: #f92672;
+}
+.token.boolean, .token.number {
+  color: #ae81ff;
+}
+.token.attr-name,
+.token.builtin,
+.token.char,
+.token.inserted,
+.token.selector,
+.token.string {
+  color: #a6e22e;
+}
+.language-css .token.string,
+.style .token.string,
+.token.entity,
+.token.operator,
+.token.url,
+.token.variable {
+  color: #f8f8f2;
+}
+.token.atrule, .token.attr-value, .token.class-name, .token.function {
+  color: #e6db74;
+}
+.token.keyword {
+  color: #66d9ef;
+}
+.token.important, .token.regex {
+  color: #fd971f;
+}
+.token.bold, .token.important {
+  font-weight: 700;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
 }

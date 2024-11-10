@@ -1,16 +1,21 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Navigate, Routes as ReactRoutes, Route } from "react-router-dom";
-import App from './App.tsx'
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes as ReactRoutes,
+} from "react-router-dom";
+import App from "./App.tsx";
 import ViewCode from "./pages/ViewCode.tsx";
 import EditCode from "./pages/EditCode.tsx";
-import './index.css'
+import "./index.css";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode>    
+  <React.StrictMode>
     <BrowserRouter>
       <App>
         <ReactRoutes>
@@ -21,5 +26,5 @@ root.render(
         </ReactRoutes>
       </App>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

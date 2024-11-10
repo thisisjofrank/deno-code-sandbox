@@ -1,21 +1,20 @@
-import React from 'react';
+import React from "react";
 
 // This component is used to display the deployment URL along
 // with an iframe to preview the deployed project.
 
-export type Props = { url: string, status: string };
+export type Props = { url: string; status: string };
 export default function DeploymentViewer(props: Props) {
-    const { url, status } = props;
+  const { url, status } = props;
 
-    const showPreview = url && status === 'success';
+  const showPreview = url && status === "success";
 
-    const notReady = (<div>{status}</div>);
-    const preview = (
-        <div>
-            <div className="url"><a href={url}>{url}</a></div>
-            <iframe src={url} title="sandbox" className="sandbox" />
-        </div>
-    );
-
-    return showPreview ? preview : notReady;
+  return (
+    <div className="console">
+      <div className="url">
+        {showPreview ? <a href={url}>{url}</a> : "Deployment URL"}         
+      </div>
+      {showPreview ? <iframe src={url} title="sandbox" className="sandbox" /> :  <p className="sandbox">{status}</p>}
+    </div>
+  )
 }
